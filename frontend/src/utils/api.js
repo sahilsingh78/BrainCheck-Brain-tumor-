@@ -1,22 +1,24 @@
 import axios from "axios";
 
-// 🔹 Base URL (auto switch dev / production)
+// 🔹 Base URL (STRICT: must come from env in production)
 const BASE_URL =
   process.env.REACT_APP_API_URL ||
-  (process.env.NODE_ENV === "development"
-    ? "http://localhost:5000/api"
-    : "/api");
+  "http://localhost:5000/api"; // fallback only for local
 
-// 🔹 Create axios instance
+if (!process.env.REACT_APP_API_URL) {
+  console.warn("⚠️ REACT_APP_API_URL not set. Using localhost.");
+}
+
+// 🔹 Axios instance
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 10000, // 10s timeout
+  timeout: 15000,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-
+// 🔐 Attach token
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("bc_token");
@@ -30,7 +32,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-
+// ⚠️ Handle errors globally
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -48,12 +50,17 @@ api.interceptors.response.use(
 
     // 🚫 Forbidden
     if (status === 403) {
-      console.warn("Access denied");
+      console.warn("🚫 Access denied");
     }
 
-    // ⚠️ Server error
+    // 🔥 Server error
     if (status >= 500) {
-      console.error("Server error:", error.response?.data);
+      console.error("🔥 Server error:", error.response?.data);
+    }
+
+    // 🌐 Network error
+    if (!error.response) {
+      console.error("🌐 Network error / Backend not reachable");
     }
 
     return Promise.reject(error);
