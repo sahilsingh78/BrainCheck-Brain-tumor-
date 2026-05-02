@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 🔹 Basic Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 🔹 SEO -->
+    <meta name="description" content="BrainCheck — AI-powered brain tumor detection using MRI scans. Fast, accurate, and accessible." />
+    <meta name="keywords" content="Brain Tumor, AI, MRI, Healthcare, Detection, Machine Learning" />
+    <meta name="author" content="Sahil" />
+
+    <!-- 🔹 Open Graph (for sharing) -->
+    <meta property="og:title" content="BrainCheck — AI MRI Analysis" />
+    <meta property="og:description" content="Detect brain tumors using AI-powered MRI analysis." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%PUBLIC_URL%/preview.png" />
+
+    <!-- 🔹 Title -->
+    <title>BrainCheck — AI MRI Analysis</title>
+
+    <!-- 🔹 Favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <!-- 🔹 Fonts (Modern UI) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- 🔹 Theme color -->
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- 🔹 Prevent zoom issues on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  </head>
+
+  <body style="margin: 0; font-family: 'Inter', sans-serif; background-color: #0f172a;">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- 🔹 React Root -->
+    <div id="root"></div>
+
+    <!-- 🔹 Optional Loading Screen -->
+    <div id="loading" style="
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      color: #00d4aa;
+      font-size: 18px;
+      font-weight: 500;
+      z-index: 9999;
+    ">
+      🧠 Loading BrainCheck...
+    </div>
+
+    <script>
+      // Remove loading screen after React mounts
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loading");
+        if (loader) loader.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
