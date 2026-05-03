@@ -49,7 +49,7 @@ def predict(image_bytes):
             "mode": "demo"
         }
 
-    # 🔬 REAL MODEL MODE (ONLY if enabled manually)
+    # 🔬 REAL MODEL MODE
     try:
         import numpy as np
         from PIL import Image
@@ -64,8 +64,14 @@ def predict(image_bytes):
         prediction = model.predict(img_array, verbose=0)
         score = float(prediction[0][0])
 
-        has_tumor = score >= 0.5
-        confidence = round(max(score, 1 - score) * 100, 2)
+        # ===============================
+        # ✅ FIXED LOGIC (IMPORTANT)
+        # ===============================
+        prob_no_tumor = score
+        prob_tumor = 1 - score
+
+        has_tumor = prob_tumor > 0.5
+        confidence = round(max(prob_tumor, prob_no_tumor) * 100, 2)
 
         return {
             "result": "Tumor Detected" if has_tumor else "No Tumor Detected",
