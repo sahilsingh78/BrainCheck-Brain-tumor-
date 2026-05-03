@@ -16,3 +16,8 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+dataset/
+*.h5
+.env
+venv/
+__pycache__/
