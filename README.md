@@ -9,12 +9,11 @@ A full-stack medical web application that uses AI to detect brain tumors from MR
 
 ## 📸 Screenshots
 
-| [Login] <img width="1718" height="912" alt="image" src="https://github.com/user-attachments/assets/b134b8a0-f8d5-4ea4-842a-0eb76a6c085a" />
- | [Dashboard] <img width="1897" height="974" alt="image" src="https://github.com/user-attachments/assets/49a5ecb2-1f63-4bee-b566-a05b1fc35208" />
- | [Upload MRI] <img width="1215" height="840" alt="image" src="https://github.com/user-attachments/assets/3cea210c-0fa7-4b45-a321-d59a35858bdb" />
- | [Result] <img width="1582" height="892" alt="image" src="https://github.com/user-attachments/assets/9677c5bd-0e1d-4ae3-b758-b5e9e2ce9a27" />
- |
-|---|---|---|---|
+[Login] <img width="1718" height="912" alt="image" src="https://github.com/user-attachments/assets/b134b8a0-f8d5-4ea4-842a-0eb76a6c085a" />
+[Dashboard] <img width="1897" height="974" alt="image" src="https://github.com/user-attachments/assets/49a5ecb2-1f63-4bee-b566-a05b1fc35208" />
+[Upload MRI] <img width="1215" height="840" alt="image" src="https://github.com/user-attachments/assets/3cea210c-0fa7-4b45-a321-d59a35858bdb" />
+[Result] <img width="1582" height="892" alt="image" src="https://github.com/user-attachments/assets/9677c5bd-0e1d-4ae3-b758-b5e9e2ce9a27" />
+
 | Secure JWT auth | Role-aware stats | Drag & drop upload | AI prediction |
 
 ---
